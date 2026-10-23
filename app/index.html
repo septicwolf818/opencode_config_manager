@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenCode Config Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>OpenCode Config Manager</h1>
+                <div class="header-actions">
+                    <button id="importBtn" class="btn btn-secondary">Import JSON</button>
+                    <button id="copyBtn" class="btn btn-primary">Copy JSON</button>
+                    <button id="downloadBtn" class="btn btn-primary">Download</button>
+                    <input type="file" id="importFileInput" accept=".json,.jsonc" hidden>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-pane">
+                <div class="pane-header">
+                    <h2>Configuration Builder</h2>
+                    <div class="builder-header-actions">
+                        <span id="schemaStatus" class="schema-status">Loading schema...</span>
+                        <button id="themeToggleBtn" class="btn btn-secondary btn-sm theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">☾</button>
+                        <button id="togglePreviewBtn" class="btn btn-secondary btn-sm" aria-expanded="true">Hide JSON</button>
+                    </div>
+                </div>
+                <div class="builder-toolbar">
+                    <input id="fieldSearch" class="field-input field-search" type="search" placeholder="Filter fields in this section…" aria-label="Filter fields">
+                </div>
+                <div class="form-container">
+                    <div id="formRoot" class="form-root"></div>
+                </div>
+            </div>
+
+            <div class="right-pane">
+                <div class="pane-header">
+                    <h2>JSON Preview</h2>
+                    <div class="preview-actions">
+                        <button id="clearBtn" class="btn btn-sm btn-danger">Clear</button>
+                    </div>
+                </div>
+                <div id="validationStatus" class="validation-status" aria-live="polite"></div>
+                <div class="preview-container">
+                    <pre id="jsonPreview"><code>{}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="statusBar" class="status-bar">Ready</div>
+    </div>
+
+    <script src="schema.js"></script>
+    <script src="form-generator.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>
